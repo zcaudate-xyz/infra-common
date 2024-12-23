@@ -1,6 +1,13 @@
-# infra-build
+# infra-common
 
-#### pushing to docker.io
+This creates the containers that are required downstream by certain applications
+
+### zcaudate-xyz/infra-redis
+
+docker run zcaudate-xyz/infra-redis:main
+
+
+### push to docker.io
 
 ```
 docker pull ghcr.io/zcaudate-xyz/infra-redis:main && docker tag ghcr.io/zcaudate-xyz/infra-redis:main zcaudate-xyz/infra-redis:main && docker push zcaudate-xyz/infra-redis:main
@@ -10,7 +17,7 @@ docker pull ghcr.io/zcaudate-xyz/infra-ganache:main && docker tag ghcr.io/zcauda
 docker pull ghcr.io/zcaudate-xyz/infra-ganache-test:main && docker tag ghcr.io/zcaudate-xyz/infra-ganache-test:main zcaudate-xyz/infra-ganache-test:main && docker push zcaudate-xyz/infra-ganache-test:main
 docker pull ghcr.io/zcaudate-xyz/infra-expo:main && docker tag ghcr.io/zcaudate-xyz/infra-expo:main zcaudate-xyz/infra-expo:main && docker push zcaudate-xyz/infra-expo:main
 ```
-#### recovery from docker.io
+### recovery from docker.io
 
 ```
 docker pull zcaudate-xyz/infra-redis:main && docker tag zcaudate-xyz/infra-redis:main ghcr.io/zcaudate-xyz/infra-redis:main
