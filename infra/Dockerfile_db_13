@@ -1,12 +1,11 @@
-FROM postgres:15
+FROM postgres:13
 ENV REDIS_WRAPPER_VERSION=0.1.0
 WORKDIR /build
 
 
 RUN apt-get update
-RUN apt-get -y install wget build-essential make gcc python3-full python3-pip postgresql-plpython3-15 postgresql-server-dev-15 libhiredis-dev
+RUN apt-get -y install wget build-essential make gcc python3-full python3-pip postgresql-plpython3-13 postgresql-server-dev-13 libhiredis-dev
 RUN pip3 install redis --break-system-packages
 
 RUN wget https://github.com/zcaudate-xyz/redis_wrapper/archive/refs/tags/${REDIS_WRAPPER_VERSION}.tar.gz && tar -xf ${REDIS_WRAPPER_VERSION}.tar.gz
 RUN cd redis_wrapper-${REDIS_WRAPPER_VERSION} && make && make install
-
